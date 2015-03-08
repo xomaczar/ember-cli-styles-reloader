@@ -1,7 +1,7 @@
 {
   "name": "ember-cli-styles-reloader",
   "version": "0.0.1",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Reloads changed styles (css|scss|sass|less|styl) without reloading the entire ember-cli app",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -15,7 +15,7 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "Andrey Khomenko",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.0",
@@ -33,7 +33,10 @@
     "ember-export-application-global": "^1.0.2"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "livereload",
+    "style",
+    "css"
   ],
   "ember-addon": {
     "configPath": "tests/dummy/config"
