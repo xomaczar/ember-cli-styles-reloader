@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-styles-reloader",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Reloads changed styles (css|scss|sass|less|styl) without reloading the entire ember-cli app",
   "directories": {
     "doc": "doc",
@@ -19,7 +19,7 @@
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.0",
-    "ember-cli": "0.2.0-beta.1",
+    "ember-cli": "^0.2.3",
     "ember-cli-app-version": "0.3.1",
     "ember-cli-babel": "^4.0.0",
     "ember-cli-content-security-policy": "0.3.0",

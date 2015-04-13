@@ -11,6 +11,19 @@ In your ember-cli project run
 npm install --save-dev ember-cli-styles-reloader
 ```
 
+## Configurations
+
+* All style changes are animated by default. To disable this feature:
+
+```javascript
+//your-app/config/environment.js
+
+
+ ENV['ember-cli-styles-reloader'] = {
+    animateChanges: false
+};
+```
+
 ## Running
 
 * `ember server`
