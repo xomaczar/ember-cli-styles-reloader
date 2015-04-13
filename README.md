@@ -18,7 +18,6 @@ npm install --save-dev ember-cli-styles-reloader
 ```javascript
 //your-app/config/environment.js
 
-
  ENV['ember-cli-styles-reloader'] = {
     animateChanges: false
 };
