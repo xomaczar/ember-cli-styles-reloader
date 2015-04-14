@@ -47,8 +47,8 @@ module.exports = {
   },
 
   contentFor: function(type, config){
-    var config = config[this.name] || { animateChanges: true };
-    if (type === "head" && config.environment === 'development' && config.animateChanges){
+    var localConfig = config[this.name] || { animateChanges: true };
+    if (type === "head" && config.environment === 'development' && localConfig.animateChanges){
         return "<style> * { transition: all 0.5s ease; } </style>";
     }
     return '';
