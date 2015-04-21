@@ -44,7 +44,7 @@
     "sass",
     "scss",
     "less",
-    "styl"
+    "styl",
   ],
   "ember-addon": {
     "configPath": "tests/dummy/config"
