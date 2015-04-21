@@ -9,16 +9,26 @@ function LiveStyleReloader(options){
 
     var noop = function(){},
         options = options,
+				appCssPattern = new RegExp('^' + options.project.root + '/app/styles/*'),
         ui = options.ui,
         http = null,
         liveReloadHostname = ['http://', options.host, ':', options.liveReloadPort].join(''),
         reloadCssPattern = options.reloadCssPattern;
 
+		var getDirtyAsset = function(changedFilePath){
+			if (changedFilePath.match(appCssPattern)){
+				return options.project.pkg.name + '.css';	
+			}
+			return 'vendor.css';
+		};
+
     var fileDidChange = function(results){
         var filePath = results.filePath || '';
+				var dirtyAsset = getDirtyAsset(filePath);
 
         if (filePath.match(reloadCssPattern)){
-            http.get(liveReloadHostname + '/changed?files=*.css')
+						ui.writeLine("Reloading " + dirtyAsset + " only");
+            http.get(liveReloadHostname + '/changed?files=' + dirtyAsset)
                 .on('error', noop);
         }
     };
