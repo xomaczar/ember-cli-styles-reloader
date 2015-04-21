@@ -3,7 +3,7 @@
 
 /* default reload css extensions */
 var styleExtensions = ['css', 'scss', 'sass', 'less', 'styl'];
-var reloadCssPattern = new RegExp('.(' + styleExtensions.join('|') + ')$' );
+var reloadCssPattern = new RegExp('.(' + styleExtensions.join('|') + ')$');
 
 function LiveStyleReloader(options){
 
@@ -15,19 +15,19 @@ function LiveStyleReloader(options){
         liveReloadHostname = ['http://', options.host, ':', options.liveReloadPort].join(''),
         reloadCssPattern = options.reloadCssPattern;
 
-		var getDirtyAsset = function(changedFilePath){
-			if (changedFilePath.match(appCssPattern)){
-				return options.project.pkg.name + '.css';	
-			}
-			return 'vendor.css';
-		};
+    var getDirtyAsset = function(changedFilePath){
+        if (changedFilePath.match(appCssPattern)){
+            return options.project.pkg.name + '.css';
+        }
+        return 'vendor.css';
+    };
 
     var fileDidChange = function(results){
         var filePath = results.filePath || '';
-				var dirtyAsset = getDirtyAsset(filePath);
+        var dirtyAsset = getDirtyAsset(filePath);
 
         if (filePath.match(reloadCssPattern)){
-						ui.writeLine("Reloading " + dirtyAsset + " only");
+            ui.writeLine("Reloading " + dirtyAsset + " only");
             http.get(liveReloadHostname + '/changed?files=' + dirtyAsset)
                 .on('error', noop);
         }
@@ -65,5 +65,4 @@ module.exports = {
     }
     return '';
   }
-
 };

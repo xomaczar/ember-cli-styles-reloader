@@ -31,13 +31,20 @@
     "ember-cli-uglify": "1.0.1",
     "ember-data": "1.0.0-beta.15",
     "ember-export-application-global": "^1.0.2",
-    "pretty-print": "^1.0.0"
   },
   "keywords": [
     "ember-addon",
     "livereload",
     "style",
-    "css"
+    "style livereload",
+    "assets livereload",
+    "style refresh",
+    "assets refresh",
+    "css",
+    "sass",
+    "scss",
+    "less",
+    "styl"
   ],
   "ember-addon": {
     "configPath": "tests/dummy/config"
