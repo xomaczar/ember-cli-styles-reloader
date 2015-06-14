@@ -9,7 +9,7 @@ function LiveStyleReloader(options){
 
     var noop = function(){},
         options = options,
-				appCssPattern = new RegExp('^' + options.project.root + '/app/styles/*'),
+        appCssPattern = new RegExp('^' + options.project.root + '/app/styles/*'),
         ui = options.ui,
         http = null,
         liveReloadHostname = ['http://', options.host, ':', options.liveReloadPort].join(''),
