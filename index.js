@@ -12,7 +12,8 @@ function LiveStyleReloader(options){
         appCssPattern = new RegExp('^' + options.project.root + '/app/styles/*'),
         ui = options.ui,
         http = null,
-        liveReloadHostname = ['http://', options.host, ':', options.liveReloadPort].join(''),
+        liveReloadHost = options.liveReloadHost || options.host
+        liveReloadHostname = [(options.ssl ? 'https://' :'http://'), liveReloadHost, ':', options.liveReloadPort].join(''),
         reloadCssPattern = options.reloadCssPattern;
 
     var getDirtyAsset = function(changedFilePath){
