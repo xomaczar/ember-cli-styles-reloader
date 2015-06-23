@@ -1,60 +1,54 @@
-/* jshint node: true */
-'use strict';
+// /* jshint node: true */
+// 'use strict';
 
-/* default reload css extensions */
-var styleExtensions = ['css', 'scss', 'sass', 'less', 'styl'];
-var reloadCssPattern = new RegExp('.(' + styleExtensions.join('|') + ')$');
+// /* default reload css extensions */
+// var styleExtensions = ['css', 'scss', 'sass', 'less', 'styl'];
+// var reloadCssPattern = new RegExp('.(' + styleExtensions.join('|') + ')$');
 
-function LiveStyleReloader(options){
+// function LiveStyleReloader(options){
 
-    var noop = function(){},
-        options = options,
-        appCssPattern = new RegExp('^' + options.project.root + '/app/styles/*'),
-        ui = options.ui,
-        http = null,
-        liveReloadHost = options.liveReloadHost || options.host
-        liveReloadHostname = [(options.ssl ? 'https://' :'http://'), liveReloadHost, ':', options.liveReloadPort].join(''),
-        reloadCssPattern = options.reloadCssPattern;
+//     var noop = function(){},
+//         options = options,
+//         appCssPattern = new RegExp('^' + options.project.root + '/app/styles/*'),
+//         ui = options.ui,
+//         http = null,
+//         liveReloadHost = options.liveReloadHost || options.host
+//         liveReloadHostname = [(options.ssl ? 'https://' :'http://'), liveReloadHost, ':', options.liveReloadPort].join(''),
+//         reloadCssPattern = options.reloadCssPattern;
 
-    var getDirtyAsset = function(changedFilePath){
-        if (changedFilePath.match(appCssPattern)){
-            return options.project.pkg.name + '.css';
-        }
-        return 'vendor.css';
-    };
+//     var getDirtyAsset = function(changedFilePath){
+//         if (changedFilePath.match(appCssPattern)){
+//             return options.project.pkg.name + '.css';
+//         }
+//         return 'vendor.css';
+//     };
 
-    var fileDidChange = function(results){
-        var filePath = results.filePath || '';
-        var dirtyAsset = getDirtyAsset(filePath);
+//     var fileDidChange = function(results){
+//         var filePath = results.filePath || '';
+//         var dirtyAsset = getDirtyAsset(filePath);
 
-        if (filePath.match(reloadCssPattern)){
-            ui.writeLine("Reloading " + dirtyAsset + " only");
-            http.get(liveReloadHostname + '/changed?files=' + dirtyAsset)
-                .on('error', noop);
-        }
-    };
+//         if (filePath.match(reloadCssPattern)){
+//             ui.writeLine("Reloading " + dirtyAsset + " only");
+//             http.get(liveReloadHostname + '/changed?files=' + dirtyAsset)
+//                 .on('error', noop);
+//         }
+//     };
 
-    this.startObserving = function(watcher){
-        if (options.liveReload){
-            ui.writeLine('StyleReloader watches ' + styleExtensions.join('|'));
-            http = require('http');
-            watcher.on('change', fileDidChange.bind(this));
-        }
-    };
-};
+//     this.startObserving = function(watcher){
+//         if (options.liveReload){
+//             ui.writeLine('StyleReloader watches ' + styleExtensions.join('|'));
+//             http = require('http');
+//             watcher.on('change', fileDidChange.bind(this));
+//         }
+//     };
+// };
 
 module.exports = {
   name: 'ember-cli-styles-reloader',
 
   serverMiddleware: function(config){
-    var options = config.options;
-
-   // Tell ember-cli to ignore files that match reloadCssPattern
-    options.project.liveReloadFilterPatterns.push(reloadCssPattern);
-    options.reloadCssPattern = reloadCssPattern
-
-    var lsReloader = new LiveStyleReloader(options);
-    lsReloader.startObserving(options.watcher);
+    var lsReloader = require('./lib/styles-reloader')(config.options);
+    lsReloader.run();
   },
 
   contentFor: function(type, config){

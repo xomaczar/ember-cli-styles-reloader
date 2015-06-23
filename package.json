@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-styles-reloader",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Reloads changed styles (css|scss|sass|less|styl) without reloading the entire ember-cli app",
   "directories": {
     "doc": "doc",

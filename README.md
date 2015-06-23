@@ -6,17 +6,23 @@ Reloads changed styles (css|scss|sass|less|styl) without reloading the entire em
 
 ## Installation
 
-### As an Ember CLI addon
+Run either command below depending on Ember version in your project folder.
 
-In your ember-cli project run
+For Ember CLI >= `0.2.3`:
 
-```bash
-npm install --save-dev ember-cli-styles-reloader
+```shell
+ember install ember-cli-styles-reloader
+```
+
+For Ember CLI < `0.2.3`:
+
+```shell
+ember install:addon ember-cli-styles-reloader
 ```
 
 ## Configurations
 
-* All style changes can be animated to smoothly transition between new/old change sets.
+* All style changes can be animated to smoothly transition between old/new change sets.
 By default this feature is disabled, in order to not interfere with existing transition(s) defined
 in your app. To enable it:
 
