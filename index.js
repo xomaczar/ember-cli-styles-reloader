@@ -46,6 +46,10 @@
 module.exports = {
   name: 'ember-cli-styles-reloader',
 
+  isDevelopingAddon: function() {
+    return true;
+  },
+
   serverMiddleware: function(config){
     var lsReloader = require('./lib/styles-reloader')(config.options);
     lsReloader.run();
