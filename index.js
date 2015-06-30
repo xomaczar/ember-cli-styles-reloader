@@ -1,54 +1,8 @@
 // /* jshint node: true */
 // 'use strict';
 
-// /* default reload css extensions */
-// var styleExtensions = ['css', 'scss', 'sass', 'less', 'styl'];
-// var reloadCssPattern = new RegExp('.(' + styleExtensions.join('|') + ')$');
-
-// function LiveStyleReloader(options){
-
-//     var noop = function(){},
-//         options = options,
-//         appCssPattern = new RegExp('^' + options.project.root + '/app/styles/*'),
-//         ui = options.ui,
-//         http = null,
-//         liveReloadHost = options.liveReloadHost || options.host
-//         liveReloadHostname = [(options.ssl ? 'https://' :'http://'), liveReloadHost, ':', options.liveReloadPort].join(''),
-//         reloadCssPattern = options.reloadCssPattern;
-
-//     var getDirtyAsset = function(changedFilePath){
-//         if (changedFilePath.match(appCssPattern)){
-//             return options.project.pkg.name + '.css';
-//         }
-//         return 'vendor.css';
-//     };
-
-//     var fileDidChange = function(results){
-//         var filePath = results.filePath || '';
-//         var dirtyAsset = getDirtyAsset(filePath);
-
-//         if (filePath.match(reloadCssPattern)){
-//             ui.writeLine("Reloading " + dirtyAsset + " only");
-//             http.get(liveReloadHostname + '/changed?files=' + dirtyAsset)
-//                 .on('error', noop);
-//         }
-//     };
-
-//     this.startObserving = function(watcher){
-//         if (options.liveReload){
-//             ui.writeLine('StyleReloader watches ' + styleExtensions.join('|'));
-//             http = require('http');
-//             watcher.on('change', fileDidChange.bind(this));
-//         }
-//     };
-// };
-
 module.exports = {
   name: 'ember-cli-styles-reloader',
-
-  isDevelopingAddon: function() {
-    return true;
-  },
 
   serverMiddleware: function(config){
     var lsReloader = require('./lib/styles-reloader')(config.options);
