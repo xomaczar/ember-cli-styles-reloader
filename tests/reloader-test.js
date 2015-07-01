@@ -53,7 +53,7 @@ describe("styles reloader", function(){
     done();
   });
 
-  it('attach default live reload style pattern', function(done){
+  it('attaches default liveReload regex', function(done){
     opts.project.liveReloadFilterPatterns.should.be.empty;
     sReloader(opts).run();
     opts.project.liveReloadFilterPatterns.should.deep.equal([/.(css|scss|sass|less|styl)$/]);
