@@ -1,6 +1,7 @@
 [![view on npm](http://img.shields.io/npm/v/ember-cli-styles-reloader.svg)](https://www.npmjs.org/package/ember-cli-styles-reloader)
 [![npm module downloads per month](http://img.shields.io/npm/dm/ember-cli-styles-reloader.svg)](https://www.npmjs.org/package/ember-cli-styles-reloader)
-[!(https://travis-ci.org/xomaczar/ember-cli-styles-reloader.svg)]
+[![Build Status](https://travis-ci.org/xomaczar/ember-cli-styles-reloader.png?branch=master)](https://travis-ci.org/xomaczar/ember-cli-styles-reloader)
+
 # Ember-cli-styles-reloader
 Reloads changed styles (css|scss|sass|less|styl) without reloading the entire ember-cli app.
 
