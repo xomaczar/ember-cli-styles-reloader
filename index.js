@@ -1,5 +1,5 @@
 // /* jshint node: true */
-// 'use strict';
+'use strict';
 
 module.exports = {
   name: 'ember-cli-styles-reloader',
@@ -9,13 +9,9 @@ module.exports = {
     lsReloader.run();
   },
 
-  contentFor: function(type, config){
-    if (type === "head" && config.environment === 'development'){
-        var localConfig = config[this.name] || { animateChanges: false };
-        if (localConfig.animateChanges){
-            return "<style> * { transition: all 0.3s ease; } </style>";
-        }
+  included: function(app){
+    if (app.env === 'development'){
+      app.import('vendor/ember-cli-styles-reloader/base.css');
     }
-    return '';
-  }
+  },
 };
