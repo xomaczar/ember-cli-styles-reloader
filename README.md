@@ -28,8 +28,7 @@ By default this feature is disabled, in order to not interfere with existing tra
 in your app. To enable it:
 
 ```javascript
-//your-app/config/environment.js or
-//your-app/config/ember-cli-build.js
+//your-app/config/environment.js
 
  ENV['ember-cli-styles-reloader'] = {
     animateChanges: true
