@@ -9,6 +9,12 @@ Reloads changed styles (css|scss|sass|less|styl) without reloading the entire em
 
 Run either command below depending on Ember version in your project folder.
 
+For Ember CLI >= `2.3.0`:
+```shell
+npm uninstall ember-cli-styles-reloader --save-dev
+```
+* Seriously, starting from ember-cli version 2.3.0 - styles reloading is supported out of the box.
+
 For Ember CLI >= `0.2.3`:
 
 ```shell
